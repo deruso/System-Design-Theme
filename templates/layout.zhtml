@@ -1,0 +1,45 @@
+<!-- LAYOUT ELEMENTS -->
+<div class="layout">
+	<!-- HEADER -->
+	{% if z.layout.header_enabled %}
+		{% include 'header.zhtml' %}
+	{% endif %}
+	
+	<!-- BREADCRUMBS -->
+	{% if z.layout.breadcrumbs_enabled %}
+		{% include 'breadcrumbs.zhtml' %}
+	{% endif %}
+	
+	<!-- CONTENT -->
+	{% if z.layout.content_enabled %}
+	<div class="content {% if z.layout.sidebar_enabled %}sidebar-enabled{% endif %}">
+		<div class="content-inner">
+			
+			<!-- SIDEBAR -->
+			{% if z.layout.sidebar_enabled %}
+				{% include 'sidebar.zhtml' %}
+			{% endif %}
+			
+			<!-- MAIN -->
+			<main>
+				{{ content }}
+			</main>
+		</div>
+	</div>
+	{% endif %}
+	
+	<!-- FOOTER -->
+	{% if z.layout.footer_enabled %}
+		{% include 'footer.zhtml' %}
+	{% endif %}
+</div>
+
+<!-- CART -->
+{% if z.layout.cart_enabled %}
+	{% include 'cart.zhtml' %}
+{% endif %}
+
+<!-- SEARCH -->
+{% if z.layout.search_enabled %}
+	{% include 'search.zhtml' %}
+{% endif %}
